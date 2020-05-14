@@ -1,0 +1,27 @@
+version: '2.0'
+
+services:
+
+  db:
+    image: ghusta/postgres-world-db:2.3
+    restart: on-failure
+    ports:
+      - 5432
+    environment:
+      POSTGRES_PASSWORD: world123
+    networks:
+      - spring-network
+
+
+  app:
+    build:
+       context: .
+    restart: always
+    ports:
+      - 8080
+    networks:
+      - spring-network
+
+
+networks:
+  spring-network:      
