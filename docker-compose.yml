@@ -6,7 +6,7 @@ services:
     image: ghusta/postgres-world-db:2.3
     restart: on-failure
     ports:
-      - 5432
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: world123
     networks:
@@ -18,7 +18,7 @@ services:
        context: .
     restart: always
     ports:
-      - 8080
+      - 8080:8080
     networks:
       - spring-network
 
