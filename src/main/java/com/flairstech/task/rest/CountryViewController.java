@@ -16,17 +16,18 @@ public class CountryViewController extends ControllerUtils {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{code}")
     public @ResponseBody
-    String getCountry(@PathVariable String code)
+    Object getCountry(@PathVariable String code)
             throws Exception {
         try {
             CountryView countryView = countryViewService.getCountryData(code);
-            return serializeRESTSuccessResponse(countryView);
+            return countryView;
         }catch (Exception exp){
-            return serializeRESTFailResponse(exp.getMessage());
+            return failResponse(exp.getMessage());
         }
 
 
     }
+
 
 
 }

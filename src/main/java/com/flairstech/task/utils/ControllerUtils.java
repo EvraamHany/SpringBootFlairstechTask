@@ -8,14 +8,8 @@ public abstract class ControllerUtils {
         GsonBuilder gsonBuilder = new GsonBuilder();
         return gsonBuilder.create();
     }
-    protected String serializeRESTSuccessResponse(Object data) {
 
-        Gson gson = getGson();
-        ResponseUtils response = new ResponseUtils();
-        response.success(data);
-        return gson.toJson(response);
-    }
-    protected String serializeRESTFailResponse(Object code) {
+    protected String failResponse(String code) {
 
         Gson gson = getGson();
         ResponseUtils response = new ResponseUtils();
